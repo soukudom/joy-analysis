@@ -2,8 +2,8 @@
 # Joy tool requests sudo to run -> run this script with sudo permission
 
 
-src_joy_dir="wireshark-pcaps/ipcam"
-dst_data_set_dir="joy-data/ipcam"
+src_joy_dir="wireshark-pcaps/ikea-app"
+dst_data_set_dir="joy-data/ikea-app"
 
 echo $src_joy_dir
 echo $dst_data_set_dir

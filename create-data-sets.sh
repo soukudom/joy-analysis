@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-src_joy_dir="joy-data/ipcam"
-dst_data_set_dir="data-sets/ipcam"
+src_joy_dir="joy-data/ikea-app"
+dst_data_set_dir="data-sets/ikea-app"
 joy="../joy/sleuth"
 
 echo $src_joy_dir
