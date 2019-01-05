@@ -2,8 +2,8 @@
 # Joy tool requests sudo to run -> run this script with sudo permission
 
 
-src_joy_dir="wireshark-pcaps/ikea-app"
-dst_data_set_dir="joy-data/ikea-app"
+src_joy_dir="wireshark-pcaps/voice-assistant"
+dst_data_set_dir="joy-data/voice-assistant"
 
 echo $src_joy_dir
 echo $dst_data_set_dir
@@ -18,7 +18,7 @@ do
   #extension="${filename##*.}"
   name="${filename%.*}"
   
-  joy bidir=1 http=1 dns=1 tls=1 dist=1 entropy=1 exe=1 idp=5 hd=1 wht=1 dhcp=1 payload=1 ppi=1 output=$dst_data_set_dir/$dir_name/$name.gz $f
+  ../joy/bin/joy  bidir=1 http=1 dns=1 tls=1 dist=1 entropy=1 exe=1 idp=256 hd=1 wht=1 dhcp=1 payload=1 ppi=1 output=$dst_data_set_dir/$dir_name/$name.gz $f
  done
 done
 

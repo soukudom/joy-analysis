@@ -14,9 +14,6 @@ for root, dirs, files in os.walk(src_directory):
     # Skip parent directories
     if dirs:
         continue
-    # TODO tmp selected dir for testing
-#    if root != "./app-init":
-#        continue
     for file in files:
         # open files in src and dst directories
         with open(root+"/"+file,encoding="utf-8", mode="r") as flows, open(dst_directory+root[2:]+"/"+file,encoding="utf-8",mode="w+") as dst_file:
@@ -29,7 +26,6 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 5684 and fields["ip"]["in"]["ttl"] == 255:
-                    #elif fields["dp"] == 5684:
                         fields["flow_type"] = "Ikea Application Data"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
@@ -50,7 +46,7 @@ for root, dirs, files in os.walk(src_directory):
                         fields["flow_type"] = "DHCP"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
-                    elif fields["sp"] == 53 and fields["dp"] == 300003 or fields["dp"] == 300004:
+                    elif fields["sp"] == 53 and fields["dp"] == 30003 or fields["dp"] == 30004:
                         fields["flow_type"] = "DNS"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
@@ -60,6 +56,16 @@ for root, dirs, files in os.walk(src_directory):
                         print(file=dst_file)
                     elif fields["ip"]["out"]["ttl"] == 128 and fields["dp"] == 80:
                         fields["flow_type"] = "FW Version Check"
+                        json.dump(fields,dst_file)
+                        print(file=dst_file)
+                    # Anomaly in ikea app traffic
+                    elif fields["dp"] == 80 and fields["ip"]["in"]["ttl"] == 128:
+                        fields["flow_type"] = "Homekit"
+                        json.dump(fields,dst_file)
+                        print(file=dst_file)
+                    # Anomaly in ikea app traffic
+                    elif fields["sp"] == 80 and fields["ip"]["out"]["ttl"] == 128:
+                        fields["flow_type"] = "Homekit"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     else:
