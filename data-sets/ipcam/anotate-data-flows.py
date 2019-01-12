@@ -30,7 +30,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 1900 and fields["dp"] != 1900:
-                        fields["flow_type"] = "SSDP (m-serach)"
+                        fields["flow_type"] = "SSDP (m-search)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 1900 and fields["dp"] == 1900:
@@ -42,7 +42,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 8760:
-                        fields["flow_type"] = "UPD myedimax.com Init"
+                        fields["flow_type"] = "UDP myedimax.com Init"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 53:

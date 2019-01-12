@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-src_joy_dir="joy-data/anomaly-traffic"
-dst_data_set_dir="data-sets/anomaly-traffic"
+src_joy_dir="joy-data/ipcam"
+dst_data_set_dir="data-sets/ipcam"
 joy="../joy/sleuth"
 
 echo $src_joy_dir
@@ -25,10 +25,10 @@ do
  #$joy $f --where "da=192.168.3.213 | sa=192.168.3.213" > "$dst_data_set_dir/$dir_name/$name.json"
 
 # call for http anomaly
- $joy $f --where "da=192.168.5.69 | sa=192.168.5.69" > "$dst_data_set_dir/$dir_name/$name.json"
+# $joy $f --where "da=192.168.5.69 | sa=192.168.5.69" > "$dst_data_set_dir/$dir_name/$name.json"
 
  #call for ipcam, http anomaly and google-mini
- #$joy $f > "$dst_data_set_dir/$dir_name/$name.json"
+ $joy $f > "$dst_data_set_dir/$dir_name/$name.json"
  done
 done
 

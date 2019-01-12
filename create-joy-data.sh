@@ -2,8 +2,8 @@
 # Joy tool requests sudo to run -> run this script with sudo permission
 
 
-src_joy_dir="wireshark-pcaps/voice-assistant"
-dst_data_set_dir="joy-data/voice-assistant"
+src_joy_dir="wireshark-pcaps/ipcam"
+dst_data_set_dir="joy-data/ipcam"
 
 echo $src_joy_dir
 echo $dst_data_set_dir
