@@ -22,7 +22,7 @@ for root, dirs, files in os.walk(src_directory):
                 fields = json.loads(flow)
                 try:
                     if fields["dp"] == 8009 and fields["da"] == "192.168.3.110":
-                        fields["flow_type"] = "Client TCP Scan"
+                        fields["flow_type"] = "Local Client TCP Scan"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sa"] == "192.168.3.109" or fields["sa"] == "192.168.3.164":
