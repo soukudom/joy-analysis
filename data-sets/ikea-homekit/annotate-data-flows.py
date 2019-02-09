@@ -26,7 +26,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == None and fields["sp"] == None and fields["ip"]["out"]["ttl"] == 1:
-                        fields["flow_type"] = "Memebership Report Group"
+                        fields["flow_type"] = "Membership Report Group"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 80 and fields["ip"]["in"]["ttl"] == 128:
