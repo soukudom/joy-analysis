@@ -21,7 +21,6 @@ do
  #$joy $f --where "da=192.168.3.213 | sa=192.168.3.213" > "$dst_data_set_dir/$dir_name/$name.json"
 
  #call for ikea-homekit (anomalies)
- #$joy $f --where "da=192.168.3.213 | (sa=192.168.3.213~224.0.0.251)" > "$dst_data_set_dir/$dir_name/$name.json"
  #$joy $f --where "da=192.168.3.213 | sa=192.168.3.213" > "$dst_data_set_dir/$dir_name/$name.json"
 
 # call for http anomaly
