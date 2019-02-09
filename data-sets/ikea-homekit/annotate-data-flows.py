@@ -6,7 +6,7 @@ import json
 
 arguments = len(sys.argv)
 src_directory = "."
-dst_directory = "/home/start/joy-analysis/anotated-data-sets/ikea-homekit/"
+dst_directory = "/home/start/joy-analysis/annotated-data-sets/ikea-homekit/"
 
 
 # read all files in subdirectories
@@ -25,7 +25,7 @@ for root, dirs, files in os.walk(src_directory):
                         fields["flow_type"] = "MDNS"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
-                    elif fields["dp"] == None and fields["sp"] == None and fields["ip"]["out"]["ttl"] == 1:
+                    elif fields["dp"] == None and fields["sp"] == None and fields["da"].startswith("2"):
                         fields["flow_type"] = "Membership Report Group"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
@@ -33,8 +33,8 @@ for root, dirs, files in os.walk(src_directory):
                         fields["flow_type"] = "Homekit Data"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
-                    elif fields["dp"] == None and fields["sp"] == None and fields["ip"]["out"]["ttl"] != 1:
-                        fields["flow_type"] = "Port Unreachable"
+                    elif fields["dp"] == None and fields["sp"] == None and not fields["da"].startswith("2"):
+                        fields["flow_type"] = "ICMP (Port Unreachable)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
 

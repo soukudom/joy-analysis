@@ -6,7 +6,7 @@ import json
 
 arguments = len(sys.argv)
 src_directory = "."
-dst_directory = "/home/start/joy-analysis/anotated-data-sets/voice-assistant/"
+dst_directory = "/home/start/joy-analysis/annotated-data-sets/voice-assistant/"
 
 
 # read all files in subdirectories
@@ -41,12 +41,12 @@ for root, dirs, files in os.walk(src_directory):
                         fields["flow_type"] = "DNS (Google Services)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
-                    elif fields["sp"] == None and fields["dp"] == None and fields["ip"]["out"]["ttl"] == 1:
+                    elif fields["sp"] == None and fields["dp"] == None and fields["da"].startswith("2"):
                         fields["flow_type"] = "Membership Report Group"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
-                    elif fields["sp"] == None and fields["dp"] == None and fields["ip"]["out"]["ttl"] != 1:
-                        fields["flow_type"] = "ICMP Port Unreachable"
+                    elif fields["sp"] == None and fields["dp"] == None and not fields["da"].startswith("2"):
+                        fields["flow_type"] = "ICMP"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 5353 and fields["dp"] == 5353:
