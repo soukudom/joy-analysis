@@ -38,7 +38,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 443:
-                        fields["flow_type"] = "Incoming TLS"
+                        fields["flow_type"] = "TLS (Incoming)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
 

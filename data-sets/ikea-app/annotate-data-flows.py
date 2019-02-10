@@ -47,11 +47,11 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 53 and fields["dp"] == 30003 or fields["dp"] == 30004:
-                        fields["flow_type"] = "DNS"
+                        fields["flow_type"] = "DNS (GW Init)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["ip"]["out"]["ttl"] == 128 and fields["dp"] == 443:
-                        fields["flow_type"] = "TLS Webhook"
+                        fields["flow_type"] = "TLS (Webhook Ikea Cloud)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["ip"]["out"]["ttl"] == 128 and fields["dp"] == 80:
@@ -60,12 +60,12 @@ for root, dirs, files in os.walk(src_directory):
                         print(file=dst_file)
                     # Anomaly in ikea app traffic
                     elif fields["dp"] == 80 and fields["ip"]["in"]["ttl"] == 128:
-                        fields["flow_type"] = "Homekit"
+                        fields["flow_type"] = "Homekit Data"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     # Anomaly in ikea app traffic
                     elif fields["sp"] == 80 and fields["ip"]["out"]["ttl"] == 128:
-                        fields["flow_type"] = "Homekit"
+                        fields["flow_type"] = "Homekit Data"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     else:

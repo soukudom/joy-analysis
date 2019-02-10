@@ -47,7 +47,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["ip"]["out"]["ttl"] == 128 and fields["dp"] == 443:
-                        fields["flow_type"] = "TLS Webhook Ikea Cloud"
+                        fields["flow_type"] = "TLS (Webhook Ikea Cloud)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     else:

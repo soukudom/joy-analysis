@@ -26,7 +26,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 445:
-                        fields["flow_type"] = "SMB - Local NAS Connection"
+                        fields["flow_type"] = "SMB (Local NAS Connection)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 1900 and fields["sp"] != 1900:
@@ -38,7 +38,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 55443:
-                        fields["flow_type"] = "TLS myedimax.com"
+                        fields["flow_type"] = "TLS (myedimax.com)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 8760:
@@ -58,7 +58,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 80:
-                        fields["flow_type"] = "Test HTTP Connection To google.com"
+                        fields["flow_type"] = "HTTP (Test Connection To google.com)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == None and fields["dp"] == None:

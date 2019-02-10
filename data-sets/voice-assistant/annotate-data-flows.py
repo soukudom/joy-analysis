@@ -34,7 +34,7 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 68 and fields["dp"] == 67:
-                        fields["flow_type"] = "DHCP Partial"
+                        fields["flow_type"] = "DHCP (Partial)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 53:
@@ -54,19 +54,19 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 5228:
-                        fields["flow_type"] = "TLS With mtalk Service"
+                        fields["flow_type"] = "TLS (Mtalk Service)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 5228:
-                        fields["flow_type"] = "TLS With mtalk Service (Missing TLS Connectivity Establishment)"
+                        fields["flow_type"] = "TLS (Mtalk Service - Missing TLS Connectivity Establishment)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 443:
-                        fields["flow_type"] = "TLS With Google Services"
+                        fields["flow_type"] = "TLS (Google Services)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 443:
-                        fields["flow_type"] = "TLS With Google Services (Missing TLS Connectivity Establishment)"
+                        fields["flow_type"] = "TLS (Google Services - Missing TLS Connectivity Establishment)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 123:
@@ -74,11 +74,11 @@ for root, dirs, files in os.walk(src_directory):
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["dp"] == 80:
-                        fields["flow_type"] = "HTTP Connectivity Check"
+                        fields["flow_type"] = "HTTP (Connectivity Check)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
                     elif fields["sp"] == 80:
-                        fields["flow_type"] = "HTTP Connectivity Check (Missing Flow Beginning)"
+                        fields["flow_type"] = "HTTP (Connectivity Check - Missing Flow Beginning)"
                         json.dump(fields,dst_file)
                         print(file=dst_file)
 
